@@ -1,11 +1,15 @@
 def hello_t(names)
-  i = 0
-  while i < names.length
-    yield (names[i])
-    i += 1
-  end
+  if block_given?
+    i = 0
+    while i < names.length
+      yield (names[i])
+      i += 1
+    end
   
-  names
+    names
+  else
+    puts "Hey! No block was given!"
+  end
 end
 
 # hello_t(["Tim", "Tom", "Jim"]) do |name|
